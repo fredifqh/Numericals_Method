@@ -27,7 +27,7 @@ std::vector<double> rk4::point(double contador, double h, double x_initCondition
 
 for (int j = 0; j < contador; ++j)
 {
-	std::cout << m[j] << "   " << n[j] << "\n"; 
+	std::cout << n[j] << "   " << m[j] << "\n"; 
 }
 
 return m;
