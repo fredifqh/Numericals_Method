@@ -12,8 +12,8 @@ public:
 	std::vector<double> k = std::vector<double>(4);
 	std::vector<double> m;
 	std::vector<double> n;
-	double rk4Function(double, double);
-	std::vector<double> point(double, double, double, double);	
+	double function(double, double);
+	std::vector<double> point(double, double, double);	
 };
 
 
