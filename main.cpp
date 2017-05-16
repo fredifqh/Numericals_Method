@@ -1,20 +1,24 @@
 #include <bits/stdc++.h>
 #include "rk4.hpp"
-#include "adamBashforth.hpp"
+
 using namespace std;
 
-const double h = 0.1;
-const double x_ini = 0;
-const double y_ini = 1; 
-const double npoint = 10; 
+double x = 0;
 
 int main(int argc, char const *argv[])
 {
-	rk4 rk4;
-	adamBashforth adamBashforth;
-	std::vector<double> v = rk4.point(h, x_ini, y_ini);
-	std::vector<double> ad = adamBashforth.fAdamBashforth(npoint, h, v[2], v[1], v[0], y_ini, x_ini);
-	//std::copy(begin(v), end(v), std::ostream_iterator<double>(std::cout, "\n"));
-	//cout << v[0] << "   " << v[1] << "   "<< v[2] << "\n";
-	return 0;
+	const double h = 0.1;
+	string execname = argv[0];
+	double x_ini = atof(argv[1]);
+	double y_ini = atof(argv[2]); 
+	double npoint = atof(argv[3]);
+
+	std::vector<double> m = rk4(npoint, h, x_ini, y_ini);
+	for(auto v : m)
+	{
+		x += h;
+		cout << setprecision(10) << x << "  " <<  v << "\n";
+	}
+
+return 0;
 }
